@@ -7,8 +7,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FCC7D7" />
-        <meta name="msapplication-TileColor" content="#FCC7D7" />
+        <meta name="theme-color" content="#5e22af" />
+        <meta name="msapplication-TileColor" content="#5e22af" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
