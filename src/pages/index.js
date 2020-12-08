@@ -1,24 +1,21 @@
-import Head from 'next/head'
 import Link from 'next/link'
+import Head from '../components/SEOHead'
+
 import { getSortedPostsData } from '../lib/posts'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ allPostsData }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head pageDescription="Minha descrição muito top" />
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Bem vindo ao meu blog!
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Fico muito feliz por você ter chegado aqui
         </p>
 
         <div className={styles.grid}>

@@ -1,15 +1,21 @@
 import React from 'react';
 
+import styles from '../styles/Layout.module.css'
+
 function Layout({ children }) {
   return (
     <>
-      <header>
-        Guilherme Balog Gardino
+      <header className={styles.header}>
+        <Layout href="/">
+          <a>
+            Guilherme Balog Gardino
+          </a>
+        </Layout>
       </header>
 
       {children}
 
-      <footer>
+      <footer className={styles.footer}>
         &copy; Guilherme Balog Gardino, {new Date().getFullYear()}
       </footer>
     </>
