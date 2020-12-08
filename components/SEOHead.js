@@ -1,13 +1,15 @@
-import Head from 'next/head'
 import React from 'react'
+import Head from 'next/head'
 
 const siteName = "Guilherme Balog Gardino"
-const siteUrl = "https://www.guilhermebalog.ga/"
-const defaultImage = "https://instagram.fssz1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/100369734_268412654301075_233554944257425408_n.jpg?_nc_ht=instagram.fssz1-1.fna.fbcdn.net&_nc_ohc=AdLlU9czyjgAX_FUC9E&_nc_tp=25&oh=71352096e18ea6760fe12dd6d63cd838&oe=5FD650C7"
+const siteUrl = "https://guilhermebalog.ga/"
+const defaultImage = "https://avatars0.githubusercontent.com/u/38947601?v=4 "
 
 export default function SEOHead({ pageTitle, pageDescription, pagePath = "", imageUrl = defaultImage }) {
   return (
     <Head>
+      <title>{pageTitle && `${pageTitle} | `}{siteName}</title>
+
       <meta name="description" content={pageDescription} />
 
       <meta itemProp="name" content={pageTitle} />

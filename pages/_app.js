@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -28,7 +29,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
       </Head>
 
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }
