@@ -1,7 +1,12 @@
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { getAllPostIds, getPostData, Post } from '../../lib/posts'
 import Head from 'next/head'
 
-export default function Post({ postData }) {
+interface Props {
+  postData: Post
+}
+
+const Post: React.FC<Props> = ({ postData }) => {
   return (
     <main>
       <Head>
@@ -15,16 +20,20 @@ export default function Post({ postData }) {
   )
 }
 
-export async function getStaticPaths() {
+export default Post
+
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds()
+
   return {
     paths,
     fallback: false
   }
 }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id)
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params.id as string)
+
   return {
     props: {
       postData

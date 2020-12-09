@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import Head from '../components/SEOHead'
 
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedPostsData, PostMeta } from '../lib/posts'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ allPostsData }) {
+interface Props {
+  allPostsData: PostMeta[]
+}
+
+const Home: React.FC<Props> = ({ allPostsData }) => {
   return (
     <div className={styles.container}>
       <Head pageDescription="Minha descrição muito top" />
@@ -33,8 +37,11 @@ export default function Home({ allPostsData }) {
   )
 }
 
+export default Home
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
+
   return {
     props: {
       allPostsData

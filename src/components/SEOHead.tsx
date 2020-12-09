@@ -5,20 +5,27 @@ const siteName = "Guilherme Balog Gardino"
 const siteUrl = "https://guilhermebalog.ga/"
 const defaultImage = "https://avatars0.githubusercontent.com/u/38947601?v=4 "
 
-export default function SEOHead({ pageTitle = "", pageDescription, pagePath = "", imageUrl = defaultImage }) {
+interface Props {
+  pageTitle?: string,
+  pageDescription: string,
+  pagePath?: string,
+  imageUrl?: string,
+}
+
+const SEOHead: React.FC<Props> = ({ pageTitle = siteName, pageDescription, pagePath, imageUrl = defaultImage }) => {
   return (
     <Head>
       <title>{pageTitle && `${pageTitle} | `}{siteName}</title>
 
       <meta name="description" content={pageDescription} />
 
-      <meta itemProp="name" content={pageTitle || siteName} />
+      <meta itemProp="name" content={pageTitle} />
       <meta itemProp="description" content={pageDescription} />
       <meta itemProp="image" content={imageUrl} />
 
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:title" content={pageTitle} />
-      <meta property="og:site_name" content={siteName || siteName} />
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={`${siteUrl}${pagePath}`} />
       <meta property="og:type" content="website" />
@@ -31,3 +38,5 @@ export default function SEOHead({ pageTitle = "", pageDescription, pagePath = ""
     </Head>
   )
 }
+
+export default SEOHead
