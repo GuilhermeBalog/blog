@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import styles from '../styles/Layout.module.css'
@@ -6,11 +7,11 @@ function Layout({ children }) {
   return (
     <>
       <header className={styles.header}>
-        <Layout href="/">
+        <Link href="/">
           <a>
             Guilherme Balog Gardino
           </a>
-        </Layout>
+        </Link>
       </header>
 
       {children}
