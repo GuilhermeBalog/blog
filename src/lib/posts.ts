@@ -1,26 +1,26 @@
 import fs from 'fs'
 import path from 'path'
-import getMatterMetadata from 'gray-matter'
+import getMetadata from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 export interface PostMeta {
-  id: string
+  id: string,
   title: string,
-  date: string
+  date: string,
 }
 
 export interface Post extends PostMeta {
   contentHtml: string
 }
 
-export function getSortedPostsData() {
+export function getSortedPostsMeta() {
   const fileNames = fs.readdirSync(postsDirectory)
 
-  const allPostsData = getAllPostsData(fileNames)
-  const sortedPostsData = sortPostsByDate(allPostsData)
+  const allPostsMeta = getAllPostsMeta(fileNames)
+  const sortedPostsData = sortPostsByDate(allPostsMeta)
 
   return sortedPostsData
 }
@@ -37,18 +37,36 @@ export function getAllPostIds() {
   })
 }
 
-export async function getPostData(id: string): Promise<Post> {
+export async function getPost(id: string): Promise<Post> {
   const fileName = `${id}.md`
   const fileContents = readMarkdownFileAsString(fileName)
 
-  const matterResult = getMatterMetadata(fileContents)
-  const contentHtml = await convertMarkdownToHTML(matterResult.content)
+  const meta = getMetadata(fileContents)
+  const contentHtml = await convertMarkdownToHTML(meta.content)
 
   return {
     id,
     contentHtml,
-    ...matterResult.data
-  } as Post
+    date: String(meta.data.date),
+    title: String(meta.data.title)
+  }
+}
+
+function getAllPostsMeta(fileNames: string[]): PostMeta[] {
+  return fileNames.map(getPostMeta)
+}
+
+function getPostMeta(fileName: string): PostMeta {
+  const id = removeMdExtension(fileName)
+  const fileContents = readMarkdownFileAsString(fileName)
+
+  const meta = getMetadata(fileContents)
+
+  return {
+    id,
+    date: String(meta.data.date),
+    title: String(meta.data.title)
+  }
 }
 
 function sortPostsByDate(posts: PostMeta[]): PostMeta[] {
@@ -58,21 +76,6 @@ function sortPostsByDate(posts: PostMeta[]): PostMeta[] {
     } else {
       return -1
     }
-  })
-}
-
-function getAllPostsData(fileNames: string[]): PostMeta[] {
-  return fileNames.map(fileName => {
-
-    const id = removeMdExtension(fileName)
-    const fileContents = readMarkdownFileAsString(fileName)
-
-    const matterResult = getMatterMetadata(fileContents)
-
-    return {
-      id,
-      ...matterResult.data
-    } as PostMeta
   })
 }
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from '../components/SEOHead'
 
-import { getSortedPostsData, PostMeta } from '../lib/posts'
+import { getSortedPostsMeta, PostMeta } from '../lib/posts'
 import styles from '../styles/Home.module.css'
 
 interface Props {
@@ -40,7 +40,7 @@ const Home = ({ allPostsData }: Props) => {
 export default Home
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsMeta()
 
   return {
     props: {

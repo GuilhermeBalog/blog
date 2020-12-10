@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'
 import SEOHead from '../../components/SEOHead'
-import { getAllPostIds, getPostData, Post } from '../../lib/posts'
+import { getAllPostIds, getPost, Post } from '../../lib/posts'
 
 import styles from '../../styles/Post.module.css'
 
@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const postData = await getPost(params.id as string)
 
   return {
     props: {
