@@ -19,7 +19,9 @@ const Layout = ({ children }: Props) => {
         <small>Design em andamento!</small>
       </header>
 
-      {children}
+      <main className={styles.main}>
+        {children}
+      </main>
 
       <footer className={styles.footer}>
         &copy; Guilherme Balog Gardino, {new Date().getFullYear()}
