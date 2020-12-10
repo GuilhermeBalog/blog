@@ -8,7 +8,7 @@ interface Props {
   allPostsData: PostMeta[]
 }
 
-const Home: React.FC<Props> = ({ allPostsData }) => {
+const Home = ({ allPostsData }: Props) => {
   return (
     <div className={styles.container}>
       <Head pageDescription="Minha descrição muito top" />

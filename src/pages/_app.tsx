@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>

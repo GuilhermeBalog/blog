@@ -3,7 +3,11 @@ import React from 'react';
 
 import styles from '../styles/Layout.module.css'
 
-const Layout: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode
+}
+
+const Layout = ({ children }: Props) => {
   return (
     <>
       <header className={styles.header}>
@@ -12,6 +16,7 @@ const Layout: React.FC = ({ children }) => {
             Guilherme Balog Gardino
           </a>
         </Link>
+        <small>Design em andamento!</small>
       </header>
 
       {children}

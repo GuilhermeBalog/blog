@@ -6,13 +6,13 @@ const siteUrl = "https://guilhermebalog.ga/"
 const defaultImage = "https://avatars0.githubusercontent.com/u/38947601?v=4 "
 
 interface Props {
-  pageTitle?: string,
+  pageTitle: string,
   pageDescription: string,
-  pagePath?: string,
-  imageUrl?: string,
+  pagePath: string,
+  imageUrl: string,
 }
 
-const SEOHead: React.FC<Props> = ({ pageTitle = siteName, pageDescription, pagePath, imageUrl = defaultImage }) => {
+const SEOHead = ({ pageTitle, pageDescription, pagePath, imageUrl }: Props) => {
   return (
     <Head>
       <title>{pageTitle && `${pageTitle} | `}{siteName}</title>
@@ -37,6 +37,12 @@ const SEOHead: React.FC<Props> = ({ pageTitle = siteName, pageDescription, pageP
       <meta name="twitter:image" content={imageUrl} />
     </Head>
   )
+}
+
+SEOHead.defaultProps = {
+  pageTitle: siteName,
+  pagePath: "",
+  imageUrl: defaultImage,
 }
 
 export default SEOHead
