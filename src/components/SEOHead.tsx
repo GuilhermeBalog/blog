@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
-const siteName = "Guilherme Balog Gardino"
-const siteUrl = "https://guilhermebalog.ga/"
+const siteName = "Blog do Guilherme Balog"
+const siteUrl = "https://blog.guilhermebalog.ga/"
 const defaultImage = "https://avatars0.githubusercontent.com/u/38947601?v=4 "
 
 interface Props {

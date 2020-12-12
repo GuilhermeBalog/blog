@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
   font-size: 1.1em;
+  font-weight: 300;
+  background-color: #f5fafa;
 }
 
 a {

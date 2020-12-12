@@ -15,11 +15,14 @@ const PostLayout = ({ postData }: Props) => {
       <SEOHead
         pageDescription=""
         pageTitle={postData.title}
-        pagePath={`/${postData.id}`}
+        pagePath={`/posts/${postData.id}`}
+        imageUrl={postData.thumbnailUrl}
       />
 
       <article className={styles.post}>
         <h1>{postData.title}</h1>
+
+        <img src={postData.thumbnailUrl} />
 
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
