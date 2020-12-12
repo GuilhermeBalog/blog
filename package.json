@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "canvas": "^2.6.1",
     "gray-matter": "^4.0.2",
     "next": "10.0.3",
     "react": "17.0.1",

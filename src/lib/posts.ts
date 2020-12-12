@@ -13,7 +13,8 @@ export interface PostMeta {
 }
 
 export interface Post extends PostMeta {
-  contentHtml: string
+  contentHtml: string,
+  thumbnailUrl: string
 }
 
 export function getSortedPostsMeta() {
@@ -44,9 +45,16 @@ export async function getPost(id: string): Promise<Post> {
   const meta = getMetadata(fileContents)
   const contentHtml = await convertMarkdownToHTML(meta.content)
 
+  const baseUrl = process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://blog.guilhermebalog.ga'
+
+  const thumbnailUrl = `${baseUrl}/api/thumbnail.png?title=${meta.data.title}`
+
   return {
     id,
     contentHtml,
+    thumbnailUrl,
     date: String(meta.data.date),
     title: String(meta.data.title)
   }
