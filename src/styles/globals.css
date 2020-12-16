@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
 
 html,
 body {
+  --primary: #00BCD4;
+  --secondary: #673AB7;
+  --danger: #E54F6D;
+  --success: #00A878;
+  --black: #0E1116;
+  --white: #F5FAFA;
+
   padding: 0;
   margin: 0;
   font-family: 'Rubik', sans-serif;
   font-size: 1.1em;
   font-weight: 300;
-  background-color: #f5fafa;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 a {

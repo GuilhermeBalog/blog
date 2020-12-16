@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 
+import 'highlight.js/styles/dracula.css'
 import '../styles/globals.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
