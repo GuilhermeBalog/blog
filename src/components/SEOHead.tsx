@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Head from 'next/head'
 
 const siteName = "Blog do Guilherme Balog"
 const siteUrl = "https://blog.guilhermebalog.ga/"
-const defaultImage = "https://avatars0.githubusercontent.com/u/38947601?v=4 "
+const defaultImage = "https://blog.guilhermebalog.ga/base_icon.png"
 
 interface Props {
   pageTitle: string,
   pageDescription: string,
   pagePath: string,
   imageUrl: string,
+  children?: ReactNode;
 }
 
-const SEOHead = ({ pageTitle, pageDescription, pagePath, imageUrl }: Props) => {
+const SEOHead = ({ pageTitle, pageDescription, pagePath, imageUrl, children }: Props) => {
   return (
     <Head>
       <title>{pageTitle && `${pageTitle} | `}{siteName}</title>
@@ -35,6 +36,8 @@ const SEOHead = ({ pageTitle, pageDescription, pagePath, imageUrl }: Props) => {
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={imageUrl} />
+
+      {children}
     </Head>
   )
 }
