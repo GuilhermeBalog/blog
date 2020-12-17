@@ -26,7 +26,7 @@ const PostLayout = ({ postData }: Props) => {
   return (
     <main>
       <SEOHead
-        pageDescription=""
+        pageDescription={postData.description}
         pageTitle={postData.title}
         pagePath={`/posts/${postData.id}`}
         imageUrl={postData.thumbnailUrl}
