@@ -99,7 +99,7 @@ function drawTitleAndReturnXPosition(
   const lineHeight = 80
 
   const x = (context.canvas.width - maxWidth) / 2
-  let y = lineHeight
+  let y = lineHeight * 2
 
   const words = title.split(" ")
   let line = "";
