@@ -78,46 +78,59 @@ function createThumbnailCanvas() {
   return createCanvas(thumbWidth, thumbHeight)
 }
 
-function drawBackground(context: CanvasRenderingContext2D, backgroundColor: string) {
+function drawBackground(
+  context: CanvasRenderingContext2D,
+  backgroundColor: string
+) {
+
   context.fillStyle = backgroundColor
   context.fillRect(0, 0, context.canvas.width, context.canvas.height)
 }
 
-function drawTitleAndReturnXPosition(context: CanvasRenderingContext2D, title: string, color: string) {
+function drawTitleAndReturnXPosition(
+  context: CanvasRenderingContext2D,
+  title: string,
+  color: string
+) {
   context.font = '70px Rubik Title'
   context.textAlign = 'left'
 
   const maxWidth = context.canvas.width * 0.8
-  let measure = context.measureText(title)
-  let breakpoint = 1
+  const lineHeight = 80
 
-  while (measure.width > maxWidth) {
-    const words = title.split(' ')
-    if (words.length == 1) break
-    const fraction = Math.floor(words.length / breakpoint)
+  const x = (context.canvas.width - maxWidth) / 2
+  let y = lineHeight
 
-    title = words.reduce((pre, word, i) => {
-      return i % fraction === 0 ?
-        `${pre}\n${word}` :
-        `${pre} ${word}`
-    }, "").trim()
+  const words = title.split(" ")
+  let line = "";
 
-    measure = context.measureText(title)
-    breakpoint++
+  // https://codepen.io/nishiohirokazu/pen/jjNyye?editors=0010
+  for (let i = 0; i < words.length; i++) {
+    const testLine = line + words[i] + " ";
+    const metrics = context.measureText(testLine);
+    const testWidth = metrics.width;
+
+    if (testWidth > maxWidth && i > 0) {
+      drawText(line, x, y)
+      line = words[i] + " ";
+      y += lineHeight;
+
+    } else {
+      line = testLine;
+    }
   }
 
-  const height = measure.actualBoundingBoxAscent + measure.actualBoundingBoxDescent
-
-  const x = (context.canvas.width / 2) - (measure.width / 2)
-  const y = (context.canvas.height / 2) - (height / 2)
-
-  context.fillStyle = 'rgba(0, 0, 0, 0.3)'
-  context.fillText(title, x, y + 7)
-
-  context.fillStyle = color
-  context.fillText(title, x, y)
+  drawText(line, x, y)
 
   return x;
+
+  function drawText(text: string, x: number, y: number) {
+    context.fillStyle = 'rgba(0, 0, 0, 0.3)'
+    context.fillText(text, x, y + 7)
+
+    context.fillStyle = color
+    context.fillText(text, x, y)
+  }
 }
 
 async function drawFooter(
