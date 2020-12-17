@@ -32,7 +32,7 @@ const SEOHead = ({ pageTitle, pageDescription, pagePath, imageUrl, children }: P
       <meta property="og:type" content="website" />
       <meta property="og:image" content={imageUrl} />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={imageUrl} />

@@ -11,8 +11,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#5e22af" />
-        <meta name="msapplication-TileColor" content="#5e22af" />
+        <meta name="theme-color" content="#00BCD4" />
+        <meta name="msapplication-TileColor" content="#00BCD4" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -31,6 +31,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+
+        <link rel="author" href="https://github.com/GuilhermeBalog" />
       </Head>
 
       <Layout>
