@@ -9,6 +9,7 @@ const postsDirectory = path.join(process.cwd(), 'posts')
 export interface PostMeta {
   id: string,
   title: string,
+  description: string,
   date: string,
 }
 
@@ -55,8 +56,9 @@ export async function getPost(id: string): Promise<Post> {
     id,
     contentHtml,
     thumbnailUrl,
-    date: String(meta.data.date),
-    title: String(meta.data.title)
+    title: String(meta.data.title),
+    description: String(meta.data.description),
+    date: String(meta.data.date)
   }
 }
 
@@ -72,8 +74,9 @@ function getPostMeta(fileName: string): PostMeta {
 
   return {
     id,
+    title: String(meta.data.title),
+    description: String(meta.data.description),
     date: String(meta.data.date),
-    title: String(meta.data.title)
   }
 }
 

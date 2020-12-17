@@ -1,5 +1,6 @@
 ---
 title: "Primeiro post do blog"
+description: "Um primeiro post pra falar um pouco sobre a construção do site."
 date: "2020-12-09"
 ---
 

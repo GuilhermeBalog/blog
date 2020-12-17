@@ -34,6 +34,9 @@ const PostLayout = ({ postData }: Props) => {
 
       <article className={styles.post}>
         <h1>{postData.title}</h1>
+        <p className={styles.postDescription}>
+          {postData.description}
+        </p>
 
         <img src={postData.thumbnailUrl} />
 
