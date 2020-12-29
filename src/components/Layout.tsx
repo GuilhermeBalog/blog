@@ -13,10 +13,31 @@ const Layout = ({ children }: Props) => {
       <header className={styles.header}>
         <Link href="/">
           <a>
-            Guilherme Balog Gardino
+            <span>
+              Guilherme
+            </span>
+            {' '}
+            <strong>
+              Balog
+            </strong>
           </a>
         </Link>
-        <small>Design em andamento!</small>
+        <ul>
+          <li>
+            <Link href="/">
+              <a>
+                {/* Início */}
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <a>
+                {/* Posts */}
+              </a>
+            </Link>
+          </li>
+        </ul>
       </header>
 
       <main className={styles.main}>

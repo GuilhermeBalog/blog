@@ -14,6 +14,7 @@ const Home = ({ allPostsData }: Props) => {
       <Head pageDescription="Minha descrição muito top" />
 
       <main className={styles.main}>
+        <img src="/assets/profile.jpeg" />
         <h1 className={styles.title}>
           Bem vindo ao meu blog!
         </h1>
@@ -23,11 +24,12 @@ const Home = ({ allPostsData }: Props) => {
         </p>
 
         <div className={styles.grid}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, description }) => (
             <Link href={`/posts/${id}`} key={id}>
               <a className={styles.card}>
-                <h3>{title} &rarr;</h3>
-                <p>{date}</p>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <p>{date.replace(/(\d+)-(\d+)-(\d+)/, '$3/$2/$1')}</p>
               </a>
             </Link>
           ))}
