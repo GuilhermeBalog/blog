@@ -6,6 +6,7 @@ import SEOHead from '../../components/SEOHead'
 import { getAllPostIds, getPost, Post } from '../../lib/posts'
 
 import styles from '../../styles/Post.module.css'
+import RelativeDate from '../../components/Date'
 
 interface Props {
   postData: Post
@@ -34,6 +35,7 @@ const PostLayout = ({ postData }: Props) => {
 
       <article className={styles.post}>
         <h1>{postData.title}</h1>
+        <RelativeDate dateString={postData.date} />
         <p className={styles.postDescription}>
           {postData.description}
         </p>

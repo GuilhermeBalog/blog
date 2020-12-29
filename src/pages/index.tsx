@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import RelativeDate from '../components/Date'
 import Head from '../components/SEOHead'
 
 import { getSortedPostsMeta, PostMeta } from '../lib/posts'
@@ -29,7 +30,7 @@ const Home = ({ allPostsData }: Props) => {
               <a className={styles.card}>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p>{date.replace(/(\d+)-(\d+)-(\d+)/, '$3/$2/$1')}</p>
+                <RelativeDate dateString={date} />
               </a>
             </Link>
           ))}
