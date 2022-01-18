@@ -21,7 +21,7 @@ const Home = ({ allPostsData }: Props) => {
         </h1>
 
         <p className={styles.description}>
-          Fico muito feliz por você ter chegado aqui
+          Meu nome é Guilherme Balog e fico muito feliz por você ter chegado aqui! Dá uma olhada nos posts que já escrevi:
         </p>
 
         <div className={styles.grid}>
